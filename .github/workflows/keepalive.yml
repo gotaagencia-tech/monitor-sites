@@ -1,0 +1,23 @@
+name: Manter agendamento ativo
+
+# O GitHub desliga workflows agendados de repositório sem atividade por 60 dias.
+# Um commit mensal evita que o monitor pare sozinho.
+on:
+  schedule:
+    - cron: '0 12 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          date -u +%Y-%m-%dT%H:%M:%SZ > .keepalive
+          git config user.name "gota-monitor"
+          git config user.email "monitor@agenciagota.com.br"
+          git add .keepalive
+          git commit -m "keepalive" && git push

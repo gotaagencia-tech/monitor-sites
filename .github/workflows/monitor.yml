@@ -1,0 +1,38 @@
+name: Monitor de sites
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Checar sites
+        env:
+          SITES: ${{ secrets.SITES }}
+          CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+        run: node check.mjs
+      - name: Guardar estado
+        run: |
+          if [ -n "$(git status --porcelain state.json)" ]; then
+            git config user.name "gota-monitor"
+            git config user.email "monitor@agenciagota.com.br"
+            git add state.json
+            git commit -m "estado do monitor"
+            git push
+          fi
