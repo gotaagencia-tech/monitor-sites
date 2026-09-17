@@ -1,0 +1,32 @@
+{
+  "439287e59c6d9ccc": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "7ebb6d65041742de": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "6394cb5133e2604d": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "83349039e99802a9": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "40094bd3767a667a": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "0b68b3857d64660e": {
+    "falhas": 1,
+    "fora": false,
+    "desde": 1789645021174
+  }
+}
