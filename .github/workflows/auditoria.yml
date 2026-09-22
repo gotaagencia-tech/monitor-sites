@@ -1,0 +1,42 @@
+name: Auditoria semanal
+
+# O monitor de 5 minutos responde "o site caiu?". Esta auditoria responde
+# "o site continua certo?", uma vez por semana: cabeçalho de segurança,
+# SPF e DMARC do domínio, e higiene básica de HTML (acessibilidade e SEO).
+# Segunda-feira, 09:00 no horário de Brasília (12:00 UTC).
+on:
+  schedule:
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auditoria
+  cancel-in-progress: false
+
+jobs:
+  auditar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Auditar sites
+        env:
+          SITES: ${{ secrets.SITES }}
+          CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+        run: node auditoria.mjs
+      - name: Guardar relatório
+        run: |
+          if [ -n "$(git status --porcelain auditoria.md)" ]; then
+            git config user.name "gota-monitor"
+            git config user.email "monitor@agenciagota.com.br"
+            git add auditoria.md
+            git commit -m "auditoria semanal"
+            git push
+          fi
