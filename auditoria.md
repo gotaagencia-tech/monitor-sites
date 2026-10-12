@@ -1,6 +1,6 @@
 # Auditoria dos sites
 
-Última execução: 28/09/2026, 16:10
+Última execução: 12/10/2026, 17:49
 
 ## Agência Gota
 
@@ -122,3 +122,16 @@ https://paxvidams.com.br
 - HSTS sem includeSubDomains
 - script-src com 'unsafe-inline', que enfraquece a proteção contra XSS. Saída é CSP com nonce
 - DMARC em p=none: só observa, não bloqueia. Subir para quarantine depois de conferir os relatórios
+
+## Dr. Pedro Barreto
+
+https://drpedrobarreto.com.br
+
+**Grave**
+
+- Sem SPF: qualquer um consegue enviar e-mail se passando por este domínio
+- Sem DMARC: nada impede falsificação de remetente neste domínio
+
+**Aviso**
+
+- script-src com 'unsafe-inline', que enfraquece a proteção contra XSS. Saída é CSP com nonce
