@@ -5,9 +5,9 @@
     "desde": null
   },
   "7ebb6d65041742de": {
-    "falhas": 0,
+    "falhas": 1,
     "fora": false,
-    "desde": null
+    "desde": 1793050442294
   },
   "6394cb5133e2604d": {
     "falhas": 0,
@@ -20,6 +20,21 @@
     "desde": null
   },
   "40094bd3767a667a": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "e51fa69f26a4c030": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "1a6e5011627044e9": {
+    "falhas": 0,
+    "fora": false,
+    "desde": null
+  },
+  "60adf01917148527": {
     "falhas": 0,
     "fora": false,
     "desde": null
