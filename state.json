@@ -5,8 +5,8 @@
     "desde": null
   },
   "7ebb6d65041742de": {
-    "falhas": 1,
-    "fora": false,
+    "falhas": 2,
+    "fora": true,
     "desde": 1793050442294
   },
   "6394cb5133e2604d": {
