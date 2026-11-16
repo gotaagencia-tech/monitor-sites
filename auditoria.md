@@ -1,6 +1,6 @@
 # Auditoria dos sites
 
-Última execução: 09/11/2026, 18:52
+Última execução: 16/11/2026, 18:34
 
 ## Agência Gota
 
@@ -10,6 +10,7 @@ https://agenciagota.com.br
 
 - HSTS sem includeSubDomains
 - script-src com 'unsafe-inline', que enfraquece a proteção contra XSS. Saída é CSP com nonce
+- <title> com 76 caracteres, o Google costuma cortar acima de 60
 - DMARC em p=none: só observa, não bloqueia. Subir para quarantine depois de conferir os relatórios
 
 ## Gestão Gota
