@@ -1,6 +1,6 @@
 # Auditoria dos sites
 
-Última execução: 16/11/2026, 18:34
+Última execução: 23/11/2026, 20:17
 
 ## Agência Gota
 
@@ -48,7 +48,6 @@ https://peresefernandes.com.br
 
 - Sem Permissions-Policy
 - X-Powered-By expõe a stack (PHP/7.4.33)
-- <title> com 76 caracteres, o Google costuma cortar acima de 60
 - DMARC em p=none: só observa, não bloqueia. Subir para quarantine depois de conferir os relatórios
 
 ## Dr. Daniel Pinheiro
